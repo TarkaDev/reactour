@@ -193,7 +193,7 @@ function Tour({
       const nodeRect = getNodeRect(node)
 
       // step is outside view
-      if (!inView({ ...nodeRect, w, h, threshold: inViewThreshold })) {
+    /*  if (!inView({ ...nodeRect, w, h, threshold: inViewThreshold })) {
         const parentScroll = Scrollparent(node)
         const offset = scrollOffset
           ? scrollOffset
@@ -210,7 +210,8 @@ function Tour({
         })
       } else {
         makeCalculations(nodeRect, step.position)
-      }
+      }*/
+      makeCalculations(nodeRect, step.position)
     } else {
       dispatch({
         type: 'NO_DOM_NODE',
