@@ -200,12 +200,13 @@ function Tour({
           : nodeRect.height > h
           ? -25
           : -(h / 2) + nodeRect.height / 2
+        console.log('node', node);
         scrollSmooth.to(document.getElementById('kewconf'), {
           context: isBody(parentScroll) ? window : parentScroll,
           duration: scrollDuration,
-          offset,
+          offset: 0,
           callback: _node => {
-            makeCalculations(getNodeRect(_node), step.position)
+            makeCalculations(getNodeRect(node), step.position)
           },
         })
       } else {
