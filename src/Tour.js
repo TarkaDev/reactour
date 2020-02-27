@@ -193,14 +193,14 @@ function Tour({
       const nodeRect = getNodeRect(node)
 
       // step is outside view
-    /*  if (!inView({ ...nodeRect, w, h, threshold: inViewThreshold })) {
+      if (!inView({ ...nodeRect, w, h, threshold: inViewThreshold })) {
         const parentScroll = Scrollparent(node)
         const offset = scrollOffset
           ? scrollOffset
           : nodeRect.height > h
           ? -25
           : -(h / 2) + nodeRect.height / 2
-        scrollSmooth.to(node, {
+        scrollSmooth.to(document.getElementById('kewconf'), {
           context: isBody(parentScroll) ? window : parentScroll,
           duration: scrollDuration,
           offset,
@@ -210,8 +210,8 @@ function Tour({
         })
       } else {
         makeCalculations(nodeRect, step.position)
-      }*/
-      makeCalculations(nodeRect, step.position)
+      }
+      // makeCalculations(nodeRect, step.position)
     } else {
       dispatch({
         type: 'NO_DOM_NODE',
