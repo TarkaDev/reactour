@@ -175,9 +175,7 @@ function Tour({
   }
 
   async function showStep(nextStep) {
-    if (step.onBeforeStep && typeof step.onBeforeStep === 'function') {
-      await step.onBeforeStep(nextStep)
-    }
+    // console.log('showStep called with', nextStep);
     const step = steps[nextStep] || steps[current]
 
     const { w, h } = getWindow()
