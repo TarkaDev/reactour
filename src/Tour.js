@@ -175,10 +175,11 @@ function Tour({
   }
 
   async function showStep(nextStep) {
-    console.log('showStep called with', nextStep);
+    if (step.onBeforeStep && typeof step.onBeforeStep === 'function') {
+      await step.onBeforeStep(nextStep)
+    }
     const step = steps[nextStep] || steps[current]
 
-    console.log('step : ', step);
     const { w, h } = getWindow()
 
     if (step.actionBefore && typeof step.actionBefore === 'function') {
@@ -186,14 +187,12 @@ function Tour({
     }
 
     const node = step.selector ? document.querySelector(step.selector) : null
-    console.log('node : ', node);
 
     if (step.observe) {
       observer.current = document.querySelector(step.observe)
     }
 
     if (node) {
-      console.log('node', node);
       // DOM node exists
       const nodeRect = getNodeRect(node)
 
